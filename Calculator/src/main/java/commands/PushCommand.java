@@ -9,7 +9,7 @@ public class PushCommand extends AbstractCommand {
     }
 
     @Override
-    public void execute() throws Exception {
+    public void execute() throws IllegalArgumentException {
         if (args.length != 1) {
             throw new IllegalArgumentException("Push command requires one argument");
         }

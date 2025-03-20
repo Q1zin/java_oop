@@ -11,5 +11,5 @@ public abstract class AbstractCommand implements Command {
         this.context = context;
     }
 
-    public abstract void execute() throws Exception;
+    public abstract void execute() throws IllegalArgumentException, IllegalStateException;
 }

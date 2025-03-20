@@ -47,4 +47,8 @@ public class CalcContext {
     public int size() {
         return variables.size();
     }
+
+    public int getSizeStack() {
+        return stack.size();
+    }
 }

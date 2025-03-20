@@ -1,6 +1,6 @@
 package main.java.commands;
 
 public interface Command {
-    void execute() throws Exception;
+    void execute() throws IllegalArgumentException, IllegalStateException;
 }
 

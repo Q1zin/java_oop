@@ -9,13 +9,13 @@ public class PrintCommand extends AbstractCommand {
     }
 
     @Override
-    public void execute() throws Exception {
+    public void execute() {
         try {
             double result = context.peek();
-            if (result == (int)result) {
-                System.out.println((int)result);
+            if (result % 1 == 0) {
+                System.out.println((int) result);
             } else {
-                System.out.println(result);
+                System.out.printf("%.6f%n", result);
             }
         } catch (IllegalStateException e) {
             System.out.println("Стек пуст");

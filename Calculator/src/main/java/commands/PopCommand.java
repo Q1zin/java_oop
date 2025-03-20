@@ -13,6 +13,7 @@ public class PopCommand extends AbstractCommand {
         if (args.length > 0) {
             throw new IllegalArgumentException("Не нужны аргументы");
         }
+
         try {
             context.pop();
         } catch (IllegalStateException e) {

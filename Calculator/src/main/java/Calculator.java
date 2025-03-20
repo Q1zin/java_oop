@@ -53,7 +53,7 @@ public class Calculator {
         }
     }
 
-    public void executeCommand(String line) throws Exception {
+    public void executeCommand(String line) throws IllegalArgumentException, IllegalStateException {
         String[] parts = line.split("\\s+");
 
         String commandName = parts[0];

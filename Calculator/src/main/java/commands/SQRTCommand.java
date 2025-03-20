@@ -10,25 +10,25 @@ public class SQRTCommand extends AbstractCommand {
     }
 
     @Override
-    public void execute() throws Exception {
+    public void execute() throws IllegalArgumentException, IllegalStateException {
         if (args.length > 0) {
             throw new IllegalArgumentException("Не нужны аргументы");
         }
 
         double value;
         try {
-            value = context.pop();
+            value = context.peek();
         } catch (IllegalStateException e) {
             System.out.println("В стеке мало значений");
             return;
         }
 
         if (value < 0) {
-            context.push(value);
             throw new IllegalStateException("Невозможно извлечь корень из отрицательного числа");
         }
         double result = Math.sqrt(value);
 
+        context.pop();
         context.push(result);
     }
 }

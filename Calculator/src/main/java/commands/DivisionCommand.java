@@ -10,30 +10,28 @@ public class DivisionCommand extends AbstractCommand {
     }
 
     @Override
-    public void execute() throws Exception {
+    public void execute() throws IllegalArgumentException {
         if (args.length > 0) {
             throw new IllegalArgumentException("Не нужны аргументы");
         }
 
-        double elem1;
-        try {
-            elem1 = context.pop();
-        } catch (IllegalStateException e) {
+        if (context.getSizeStack() < 2) {
             System.out.println("В стеке мало значений");
             return;
         }
 
-        if (elem1 == 0) {
-            context.push(elem1);
-            System.out.println("На 0 делить нельзя!");
-            return;
-        }
-
-        double elem2;
+        double elem1, elem2;
         try {
+            elem1 = context.pop();
+
+            if (elem1 == 0) {
+                context.push(elem1);
+                System.out.println("На 0 делить нельзя!");
+                return;
+            }
+
             elem2 = context.pop();
         } catch (IllegalStateException e) {
-            context.push(elem1);
             System.out.println("В стеке мало значений");
             return;
         }
