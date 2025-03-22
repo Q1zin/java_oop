@@ -1,6 +1,6 @@
-package main.java.commands;
+package calc.commands;
 
-import main.java.CalcContext;
+import calc.CalcContext;
 
 @CommandName("DEFINE")
 public class DefineCommand extends AbstractCommand {
@@ -28,7 +28,7 @@ public class DefineCommand extends AbstractCommand {
         }
     }
 
-    public static boolean hasNonDigits(String str) {
+    private static boolean hasNonDigits(String str) {
         return !str.matches("\\d+");
     }
 }

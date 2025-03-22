@@ -1,11 +1,10 @@
-package main.java.commands;
+package calc.commands;
 
-import main.java.CalcContext;
-import java.lang.Math;
+import calc.CalcContext;
 
-@CommandName("-")
-public class MinusCommand extends AbstractCommand {
-    public MinusCommand(String[] args, CalcContext context) {
+@CommandName("*")
+public class MultCommand extends AbstractCommand {
+    public MultCommand(String[] args, CalcContext context) {
         super(args, context);
     }
 
@@ -29,7 +28,8 @@ public class MinusCommand extends AbstractCommand {
             return;
         }
 
-        double result = elem2 - elem1;
+        double result = elem1 * elem2;
         context.push(result);
     }
 }
+

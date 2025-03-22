@@ -1,6 +1,6 @@
-package main.java.commands;
+package calc.commands;
 
-import main.java.CalcContext;
+import calc.CalcContext;
 
 public abstract class AbstractCommand implements Command {
     protected final String[] args;

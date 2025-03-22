@@ -1,11 +1,10 @@
-package main.java.commands;
+package calc.commands;
 
-import main.java.CalcContext;
-import java.lang.Math;
+import calc.CalcContext;
 
-@CommandName("*")
-public class MultCommand extends AbstractCommand {
-    public MultCommand(String[] args, CalcContext context) {
+@CommandName("/")
+public class DivisionCommand extends AbstractCommand {
+    public DivisionCommand(String[] args, CalcContext context) {
         super(args, context);
     }
 
@@ -23,13 +22,20 @@ public class MultCommand extends AbstractCommand {
         double elem1, elem2;
         try {
             elem1 = context.pop();
+
+            if (elem1 == 0) {
+                context.push(elem1);
+                System.out.println("На 0 делить нельзя!");
+                return;
+            }
+
             elem2 = context.pop();
         } catch (IllegalStateException e) {
             System.out.println("В стеке мало значений");
             return;
         }
 
-        double result = elem1 * elem2;
+        double result = elem2 / elem1;
         context.push(result);
     }
 }

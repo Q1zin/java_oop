@@ -1,6 +1,6 @@
-package main.java.commands;
+package calc.commands;
 
-import main.java.CalcContext;
+import calc.CalcContext;
 
 @CommandName("PUSH")
 public class PushCommand extends AbstractCommand {
@@ -13,6 +13,7 @@ public class PushCommand extends AbstractCommand {
         if (args.length != 1) {
             throw new IllegalArgumentException("Push command requires one argument");
         }
+
         double value;
         try {
             if (context.contains(args[0])){

@@ -1,4 +1,4 @@
-package main.java;
+package calc;
 import io.github.classgraph.ClassGraph;
 import io.github.classgraph.ScanResult;
 import io.github.classgraph.ClassInfo;
@@ -9,21 +9,19 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import main.java.CalcContext;
-
-import main.java.commands.Command;
-import main.java.commands.CommandName;
+import calc.commands.Command;
+import calc.commands.CommandName;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class CommandFactory {
     private static final Map<String, Class<? extends Command>> commands = new HashMap<>();
-    private static final Logger logger = LogManager.getLogger(main.java.CommandFactory.class);
+    private static final Logger logger = LogManager.getLogger(CommandFactory.class);
 
     static {
         try (ScanResult scanResult = new ClassGraph()
                 .enableAllInfo()
-                .acceptPackages("main.java.commands")
+                .acceptPackages("calc.commands")
                 .scan()) {
 
             ClassInfoList annotatedClasses = scanResult.getClassesWithAnnotation(CommandName.class.getName());

@@ -1,22 +1,21 @@
-package main.java;
+package calc;
 
 import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
-import main.java.CalcContext;
-import main.java.commands.*;
+import calc.commands.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Calculator {
     private final CalcContext context = new CalcContext();
-    private static final Logger logger = LogManager.getLogger(CalcContext.class);
+    private static final Logger logger = LogManager.getLogger(Calculator.class);
 
     public static void main(String[] args) {
         Calculator calc = new Calculator();
         if (args.length > 0) {
-            try(BufferedReader buff = new BufferedReader(new FileReader(args[0]))) {
+            try(FileReader buff = new FileReader(args[0])) {
                 calc.executeCommands(buff);
             } catch (FileNotFoundException e) {
                 System.out.println("Файл не найден: " + args[0]);
@@ -40,6 +39,10 @@ public class Calculator {
                     continue;
                 }
 
+                if (line.trim().equals("exit")) {
+                    return;
+                }
+
                 try {
                     executeCommand(line.trim());
                 } catch (IllegalArgumentException | IllegalStateException e) {
@@ -59,12 +62,12 @@ public class Calculator {
         String commandName = parts[0];
         String[] commandArgs = Arrays.copyOfRange(parts, 1, parts.length);
 
-        Command command = CommandFactory.createCommand(commandName, commandArgs, context);
-        if (command != null) {
-            command.execute();
-        } else {
+        Command command = CommandFactory.createCommand(commandName, commandArgs, getContext());
+        if (command == null) {
             throw new IllegalArgumentException("Неизвестная команда: " + commandName);
         }
+
+        command.execute();
     }
 
     public CalcContext getContext() {

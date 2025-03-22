@@ -36,7 +36,7 @@ jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes(
-            'Main-Class': 'main.java.Calculator'
+            'Main-Class': 'calc.Calculator'
         )
     }
 
@@ -46,5 +46,5 @@ jar {
 }
 
 application {
-    mainClass = 'main.java.Calculator'
+    mainClass = 'calc.Calculator'
 }

@@ -1,7 +1,6 @@
-package main.java.commands;
+package calc.commands;
 
-import main.java.CalcContext;
-import java.lang.Math;
+import calc.CalcContext;
 
 @CommandName("+")
 public class PlusCommand extends AbstractCommand {

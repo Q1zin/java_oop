@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import main.java.Calculator;
+import calc.Calculator;
 
 public class CalculatorTests {
     private Calculator calculator;
