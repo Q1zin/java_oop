@@ -223,6 +223,20 @@ public class PDO {
         writeDB(db);
     }
 
+    public void createTable(String nameDB, String tableName, List<Column> newStruct) {
+        Database db = loadDB(nameDB);
+        Table table = new Table(tableName);
+
+        if (db.getTable(tableName) != null) {
+            throw new IllegalArgumentException("Таблица с именем " + tableName + " уже существует");
+        }
+        validateStruct(newStruct);
+        table.setColumns(newStruct);
+
+        db.getTables().put(tableName, table);
+        writeDB(db);
+    }
+
     public void setDbLast(String dbLast) {
         DB_LAST = dbLast;
     }

@@ -480,6 +480,22 @@ public class FXMLController {
             newStruct.add(new Column(name, type, flags));
         }
 
+        // проверка если это новая табоица
+
+        try {
+            pdo.createTable(getSelectDb(), tableName, newStruct);
+
+            updateTabsTable();
+            tabsTable.getSelectionModel().selectLast();
+            updateTabsActions();
+            tabsActions.getSelectionModel().select(1);
+            logger.info("Создана новая таблица {} в {}", tableName, getSelectDb());
+        } catch (Exception e) {
+            logger.info("Ошибка при создании таблицы {} в {}. Ошибка: {}, StackTrace: {}", tableName, getSelectDb(), e.getMessage(), e.getStackTrace());
+            notificationManager.showError("Ошибка при создании таблицы. Ошибка: " + e.getMessage());
+            return;
+        }
+
         try {
             pdo.updateTableStruct(getSelectDb(), getSelectTable(), newStruct);
 
@@ -489,7 +505,6 @@ public class FXMLController {
                 tabsTable.getSelectionModel().selectLast();
                 updateTabsActions();
                 tabsActions.getSelectionModel().select(1);
-
             }
 
             notificationManager.showNotify("Структура успешно изменена");
