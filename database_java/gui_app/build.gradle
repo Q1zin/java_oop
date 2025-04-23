@@ -1,0 +1,49 @@
+plugins {
+  id 'application'
+  id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+group = 'com.database'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs '../pdo-library/build/libs'
+    }
+}
+
+dependencies {
+    implementation project(':pdo-library')
+
+    implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
+    implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.20.0'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+    implementation 'io.github.classgraph:classgraph:4.8.179'
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
+}
+
+javafx {
+    version = '21'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+tasks.withType(JavaExec) {
+    outputs.upToDateWhen { false }
+    onlyIf { true }
+}
+
+application {
+    mainClass = 'org.openjfx.MainApp'
+}
+
+run {
+    standardInput = System.in
+    environment = System.getenv()
+    workingDir = projectDir
+}
