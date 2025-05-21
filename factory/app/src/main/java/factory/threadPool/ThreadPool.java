@@ -24,7 +24,7 @@ public class ThreadPool {
     public void addTask(Task task) {
         synchronized (tasks) {
             tasks.add(task);
-            tasks.notifyAll();
+            tasks.notify();
         }
     }
 
@@ -37,7 +37,7 @@ public class ThreadPool {
         }
     }
 
-    public int getTasksSize() {
+    public synchronized int getTasksSize() {
         return tasks.size();
     }
 
