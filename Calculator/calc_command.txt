@@ -1,0 +1,5 @@
+DEFINE a 5
+PUSH a
+# находим корень
+SQRT
+PRINT
