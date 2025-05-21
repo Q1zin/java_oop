@@ -18,10 +18,8 @@ public class Calculator {
             try(FileReader buff = new FileReader(args[0])) {
                 calc.executeCommands(buff);
             } catch (FileNotFoundException e) {
-                System.out.println("Файл не найден: " + args[0]);
                 logger.error("Файл не найден: {}", args[0]);
             } catch (Exception e) {
-                System.out.println("Неизвестная ошибка, вводите команды вручную: ");
                 logger.error("Произошла критическая ошибка: calc.executeCommands(buff from {}) {}", args[0], e.getMessage());
                 calc.executeCommands(new InputStreamReader(System.in));
             }
@@ -46,10 +44,8 @@ public class Calculator {
                 try {
                     executeCommand(line.trim());
                 } catch (IllegalArgumentException | IllegalStateException e) {
-                    System.out.println(e.getMessage());
                     logger.warn("Ошибка ввода: {}", e.getMessage());
                 } catch (Exception e) {
-                    System.out.println("Неизвестная ошибка, вводите команды вручную: ");
                     logger.error("Произошла критическая ошибка: executeCommand({}) {}", line.trim(), e.getMessage());
                 }
             }

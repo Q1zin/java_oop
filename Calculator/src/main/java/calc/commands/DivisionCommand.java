@@ -16,24 +16,18 @@ public class DivisionCommand extends AbstractCommand {
 
         if (context.getSizeStack() < 2) {
             System.out.println("В стеке мало значений");
-            return;
+            throw new IllegalStateException("В стеке мало значений");
         }
 
-        double elem1, elem2;
-        try {
-            elem1 = context.pop();
+        double elem1 = context.pop();
 
-            if (elem1 == 0) {
-                context.push(elem1);
-                System.out.println("На 0 делить нельзя!");
-                return;
-            }
-
-            elem2 = context.pop();
-        } catch (IllegalStateException e) {
-            System.out.println("В стеке мало значений");
-            return;
+        if (elem1 == 0) {
+            context.push(elem1);
+            System.out.println("На 0 делить нельзя!");
+            throw new IllegalArgumentException("На 0 делить нельзя!");
         }
+
+        double elem2 = context.pop();
 
         double result = elem2 / elem1;
         context.push(result);

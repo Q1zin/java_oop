@@ -16,17 +16,11 @@ public class PlusCommand extends AbstractCommand {
 
         if (context.getSizeStack() < 2) {
             System.out.println("В стеке мало значений");
-            return;
+            throw new IllegalStateException("В стеке мало значений");
         }
 
-        double elem1, elem2;
-        try {
-            elem1 = context.pop();
-            elem2 = context.pop();
-        } catch (IllegalStateException e) {
-            System.out.println("В стеке мало значений");
-            return;
-        }
+        double elem1 = context.pop();
+        double elem2 = context.pop();
 
         double result = elem1 + elem2;
         context.push(result);

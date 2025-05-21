@@ -20,7 +20,7 @@ public class SQRTCommand extends AbstractCommand {
             value = context.peek();
         } catch (IllegalStateException e) {
             System.out.println("В стеке мало значений");
-            return;
+            throw new IllegalStateException("В стеке мало значений");
         }
 
         if (value < 0) {
