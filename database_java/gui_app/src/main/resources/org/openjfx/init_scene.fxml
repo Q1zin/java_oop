@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="259.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.FXMLControllerInit">
+   <children>
+      <AnchorPane prefHeight="285.0" prefWidth="600.0">
+         <children>
+            <Text layoutX="41.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите каталог для экспорта и хранения ваших баз данных. Этот путь будет использоваться по умолчанию, но вы всегда сможете изменить его в настройках." textAlignment="JUSTIFY" wrappingWidth="518.0744618088261">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="45.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Добро пожаловать в локальную базу данных!" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Text>
+            <Text layoutX="42.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Если путь не указан, будет использовано значение по умолчанию:">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Text fx:id="textPathDefault" layoutX="41.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" /user/….">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Button fx:id="btnSelectPath" layoutX="42.0" layoutY="141.0" mnemonicParsing="false" text="Выбрать путь!" />
+            <Text fx:id="textSelectPath" layoutX="154.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выбранный путь" />
+            <Button fx:id="btnGo" layoutX="222.0" layoutY="208.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="157.0" text="ПОЕХАЛИ!" textAlignment="CENTER">
+               <font>
+                  <Font name="Helvetica" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
