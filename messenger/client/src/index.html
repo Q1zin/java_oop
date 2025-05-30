@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/login.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вход</title>
+    <script type="module" src="./scripts/login.js" defer></script>
+  </head>
+
+  <body>
+    <main class="container">
+      <div class="login">
+        <form class="login-wrap">
+          <h1 class="login__title">Вход</h1>
+          <input class="form__input login__email" type="text" name="email" id="email" placeholder="Введите email" />
+          <input class="form__input login__password" type="password" name="password" id="password" placeholder="Введите пароль" />
+          <span class="form__error login__error">Ошибка</span>
+          <button type="submit" class="form__btn login__btn">Войти</button>
+          <div class="login__links">
+            <a href="./register.html" class="login__link">Зарегистрироваться</a>
+            <a href="#" class="login__link">Забыли пароль?</a>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

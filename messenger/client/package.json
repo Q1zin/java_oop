@@ -1,0 +1,14 @@
+{
+  "name": "messanger-tauri",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run prepare-java && tauri dev",
+    "build": "npm run prepare-java && tauri build",
+    "prepare-java": "bash scripts/build-java.sh"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}

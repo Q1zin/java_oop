@@ -1,0 +1,52 @@
+@import 'forms'
+
+.login
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 400px
+    padding: 20px
+    background-color: #f9f9f9
+    border: 1px solid #ddd
+    border-radius: 8px
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2)
+    &-wrap
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        width: 80%
+    &__title
+        font-size: 24px
+        font-weight: bold
+        margin-bottom: 20px
+        color: #333
+    &__email
+        width: 100%
+        margin-bottom: 15px
+    &__password
+        width: 100%
+        margin-bottom: 2px
+    &__error
+        display: block
+        color: #e74c3c
+        font-size: 12px
+        line-height: 10px
+        margin-bottom: 4px
+        width: 100%
+        visibility: hidden
+    &__error--active
+        visibility: visible
+    &__btn
+        width: 100%
+        margin-bottom: 10px
+    &__links
+        display: flex
+        justify-content: space-between
+        width: 100%
+    &__link
+        color: #4a90e2
+        text-decoration: none
+        font-size: 12px
+        &:hover
+            text-decoration: underline

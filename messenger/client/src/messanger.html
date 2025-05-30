@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./css/messanger.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Мессанджер</title>
+        <script type="module" src="./scripts/messanger.js" defer></script>
+    </head>
+    <body>
+        <main class="container">
+            <div class="messanger">
+                <div class="messanger-wrap">
+                    <a href="/" class="messanger__logout">Выйти</a>
+                    <div class="messanger__chats">
+                    </div>
+                    <div class="messanger__chat chat">
+                        <div class="chat__messages">
+                        </div>
+                        <form class="chat__form">
+                            <input type="text" class="form__input chat__form-input" placeholder="Введите сообщение..." />
+                            <button type="submit" class="chat__form-btn"><img src="./assets/send-btn.png" alt="icons: send message"></button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
