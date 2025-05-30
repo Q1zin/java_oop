@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/register.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Регистрация</title>
+        <script type="module" src="./scripts/register.js" defer></script>
+    </head>
+    <body>
+    <main class="container">
+        <form class="register">
+            <div class="register-wrap">
+            <h1 class="register__title">Регистрация</h1>
+            <input class="form__input register__name" type="text" name="name" id="name" placeholder="Введите имя" />
+            <input class="form__input register__email" type="text" name="email" id="email" placeholder="Введите email" />
+            <input class="form__input register__password" type="password" name="password" id="password" placeholder="Введите пароль" />
+            <span class="form__error register__error">Ошибка</span>
+            <button type="submit" class="form__btn register__btn">Зарегистрироваться!</button>
+            <div class="register__links">
+                <a href="./index.html" class="register__link">Войти</a>
+            </div>
+        </form>
+    </main>
+  </body>
+</html>
